@@ -39,6 +39,11 @@ $('#add-form').on('submit', function(event) {
   })
 })
 
+$('#add-form').on('submit', function(event) {
+	event.preventDefault()
+	$("input").val('');
+});
+
 $('#list').on('click', '.complete-button', function(event) {
   var item = $(event.target).parent()
   var isItemCompleted = item.hasClass('completed')
@@ -74,4 +79,5 @@ $('#list').on('click', '.delete-button', function(event) {
     data: { completed: !isItemCompleted }
   })
   })
+
 
