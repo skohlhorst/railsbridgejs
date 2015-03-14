@@ -79,5 +79,3 @@ $('#list').on('click', '.delete-button', function(event) {
     data: { completed: !isItemCompleted }
   })
   })
-
-
