@@ -59,22 +59,3 @@ $('#list').on('click', '.complete-button', function(event) {
   })
 })
 
-$('#list').on('click', '.delete-button', function(event) {
-  var item = $(event.target).parent()
-  var isItemDeleted = item.hasClass('deleted')
-  var itemId = item.attr('data-id')
-
-  var updateRequest = $.ajax({
-    type: 'PUT',
-    url: "https://listalous.herokuapp.com/lists/YOUR-LIST-NAME-HERE/items/" + itemId,
-    data: { deleted: !isItemDeleted }
-  })
-
-  updateRequest.done(function(itemData) {
-    if (itemData.deleted) {
-      item.addClass('deleted')
-    } else {
-      item.removeClass('deleted')
-    }
-  })
-})
