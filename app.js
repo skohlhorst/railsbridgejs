@@ -46,7 +46,7 @@ $('#list').on('click', '.complete-button', function(event) {
 
   var updateRequest = $.ajax({
     type: 'PUT',
-    url: "https://listalous.herokuapp.com/lists/YOUR-LIST-NAME-HERE/items/" + itemId,
+    url: "https://listalous.herokuapp.com/lists/SKOHLHORST/items/" + itemId,
     data: { completed: !isItemCompleted }
   })
 
@@ -58,3 +58,18 @@ $('#list').on('click', '.complete-button', function(event) {
     }
   })
 })
+
+$('#list').on('click', '.delete-button', function(event) {
+  var item = $(event.target).parent();
+  var isItemCompleted = item.hasClass('completed');
+  var itemId = item.attr('data-id');
+  console.log(item);
+
+  item.hide();
+
+  var updateRequest = $.ajax({
+    type: 'DELETE',
+    url: "https://listalous.herokuapp.com/lists/SKOHLHORST/items/" + itemId,
+    data: { completed: !isItemCompleted }
+  })
+  })
