@@ -66,7 +66,7 @@ $('#list').on('click', '.delete-button', function(event) {
   var itemId = item.attr('data-id');
   console.log(item);
 
-  item.hide();
+  item.slideUp();
 
   var updateRequest = $.ajax({
     type: 'DELETE',
