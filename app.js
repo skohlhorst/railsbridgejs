@@ -61,7 +61,7 @@ $('#list').on('click', '.complete-button', function(event) {
 
 $('#list').on('click', '.delete-button', function(event) {
   var item = $(event.target).parent()
-  var isItemDeleted = item.hasClass('delete')
+  var isItemDeleted = item.hasClass('deleted')
   var itemId = item.attr('data-id')
 
   var updateRequest = $.ajax({
@@ -72,9 +72,9 @@ $('#list').on('click', '.delete-button', function(event) {
 
   updateRequest.done(function(itemData) {
     if (itemData.deleted) {
-      item.addClass('delete')
+      item.addClass('deleted')
     } else {
-      item.removeClass('delete')
+      item.removeClass('deleted')
     }
   })
 })
